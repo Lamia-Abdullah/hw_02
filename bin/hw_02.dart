@@ -44,8 +44,8 @@ selectdUeser({String? inputUser}) {
     exit(0);
   } else if (inputUser == "3") {
     print("delete id");
-    var inputID = stdin.readLineSync()!;
-    deleteById(id: inputID);
+    var removeID = stdin.readLineSync()!;
+    deleteById(id: removeID);
   }
 }
 //SearchById
@@ -58,10 +58,11 @@ searchById({String? id}) {
 }
 //DeleteById
 deleteById({String? id}) {
-  for (var st1 in students) {
-    if (st1["id"] == int.parse(id!)) {
-      students.remove(id);
-      print(st1);
+  for (var i = 0; i < students.length; i++) {
+    if (students[i]["id"] == int.parse(id!)) {
+      print("remove done");
+      print(students[i]);
+      students.removeAt(i);
     }
   }
 }
